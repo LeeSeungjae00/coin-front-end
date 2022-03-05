@@ -1,0 +1,23 @@
+.App {
+  max-width: 1440px;
+  background-color: #fff;
+  padding: 48px;
+}
+
+
+@font-face {
+  font-family: "ClashDisplay-Bold";
+  font-weight: 50;
+  src: url("./fonts/ClashDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: "ClashDisplay-Medium";
+  src: url("./fonts/ClashDisplay-Medium.ttf");
+}
+
+
+@font-face {
+  font-family: "ClashDisplay-Regular";
+  src: url("./fonts/ClashDisplay-Regular.ttf");
+}
