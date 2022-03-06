@@ -21,3 +21,19 @@
   font-family: "ClashDisplay-Regular";
   src: url("./fonts/ClashDisplay-Regular.ttf");
 }
+
+.colFlex{
+  display: flex;
+  flex-direction: column;
+}
+
+.rowFlex{
+  display: flex;
+  flex-direction: row;
+}
+
+.center{
+  align-items: center;
+}
+
+
