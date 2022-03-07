@@ -10,7 +10,7 @@ export default function Header() {
             </div>
             <menu className={styles.menu}>
                 <p className={styles.menuItem}>Main</p>
-                <p className={styles.menuItem}>trading List</p>
+                <p className={styles.menuItem}>Trading List</p>
                 <p className={styles.menuItem}>Today's Coin</p>
                 <p className={styles.menuItem}>Admin Page</p>
             </menu>

@@ -49,7 +49,7 @@
 }
 
 .giraffe {
-    animation: updown 0.2s linear 0s infinite alternate; 
+    animation: updown 0.2s cubic-bezier(0.4, 0, 1, 1) 0s infinite alternate; 
     top: 0px;
     position: relative;
 }
@@ -60,6 +60,6 @@
     }
 
     100% {
-        top: 40px;
+        top: 55px; 
     }
 }
