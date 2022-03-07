@@ -16,7 +16,7 @@ export default function Main() {
             <NowBuyCoin 
                 market = {data.market}
                 nowPrice = {data.nowPrice}
-                per = {data.per}></NowBuyCoin>
+                pre = {data.pre}></NowBuyCoin>
         </div>
     )
 }

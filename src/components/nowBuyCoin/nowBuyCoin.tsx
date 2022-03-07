@@ -2,7 +2,11 @@ import React, { useCallback } from 'react'
 import styles from './nowBuyCoin.module.scss';
 import Giraffe from './giraffe.svg';
 import GiraffeExiting from './giraffe_exiting.svg'
+import GiraffeSleep from './giraffe_sleep.svg'
+import GiraffeSad from './giraffe_sad.svg'
+import GiraffeManbung from './giraffe_manbung.svg'
 import Coin from './Bitcoin.svg';
+
 
 interface NowBuyCoinType {
     market: string,
@@ -13,13 +17,16 @@ interface NowBuyCoinType {
 
 export default function NowBuyCoin({ market, nowPrice, pre }: NowBuyCoinType) {
     const selectGiraffe = useCallback(
-        (pre: number) => {
+        () => {
+            if(market === "") return GiraffeSleep
             if (pre > 1.5) {
                 return GiraffeExiting
-            } else if(pre > 0) {
+            } else if(pre >= 0) {
                 return Giraffe
-            } else if(pre === 0){
-                
+            } else if(pre > -1){
+                return GiraffeSad
+            } else{
+                return GiraffeManbung
             }
         },
         [GiraffeExiting, Giraffe],
@@ -35,9 +42,9 @@ export default function NowBuyCoin({ market, nowPrice, pre }: NowBuyCoinType) {
                     </div>
                 </div>
                 <div className="rowFlex"><h1 className={styles.present}>
-                    {pre > 0 ? "+" : "-"} {Math.abs(pre)} %</h1><p></p></div>
+                    {pre >= 0 ? "+" : "-"} {Math.abs(pre)} %</h1><p></p></div>
             </div>
-            <img className={styles.giraffe} alt="giraffe" src={selectGiraffe(pre)}></img>
+            <img className={styles.giraffe} alt="giraffe" src={selectGiraffe()}></img>
         </div>
     )
 }
