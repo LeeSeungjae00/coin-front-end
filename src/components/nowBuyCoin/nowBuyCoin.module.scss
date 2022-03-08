@@ -14,6 +14,10 @@
     padding-left: 1.5rem;
     padding-right: 8rem;
     overflow: hidden;
+
+    &.nonMarket{
+        background : linear-gradient(89.64deg, #656565 -7.92%, #5d5d5d 95.42%, #ffffff 151.95%)
+    }
 }
 
 
@@ -45,21 +49,22 @@
     line-height: 177px;
     letter-spacing: 0.08em;
 
-    color: #FF7878;
+    // color: #FF7878;
+    &.minus{
+        color: #BEBDFF;
+    }
+
+    &.plus{
+        color: #FF7878;
+    }
+
+    &.zero{
+        color: #efefef;
+    }
 }
 
 .giraffe {
     animation: updown 0.2s cubic-bezier(0.4, 0, 1, 1) 0s infinite alternate; 
     top: 0px;
     position: relative;
-}
-
-@keyframes updown {
-    0% {
-        top: 0px;
-    }
-
-    100% {
-        top: 55px; 
-    }
 }

@@ -5,12 +5,13 @@ import axios from 'axios'
 import NowBuyCoin from '../../components/nowBuyCoin/nowBuyCoin';
 
 export default function Main() {
-    const { data } = useQuery("nowBuyCoin", () =>
+    const { data, isLoading } = useQuery("nowBuyCoin", () =>
         axios.get("/buyCoin").then(res => res.data[0]),{
             refetchInterval : 10000
         }
     );
 
+    if(isLoading) return <>loading</>
     return (
         <div className={styles.main}>
             <NowBuyCoin 
