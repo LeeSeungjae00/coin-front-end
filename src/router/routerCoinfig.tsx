@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Main from '../container/main'
+import Main from '../components/main'
 
 
 export default function RouterCoinfig() {

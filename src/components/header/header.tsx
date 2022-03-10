@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './header.module.scss'
 
 export default function Header() {
@@ -9,10 +10,9 @@ export default function Header() {
                 <p className={styles.title}>SJ Coin</p>
             </div>
             <menu className={styles.menu}>
-                <p className={styles.menuItem}>Main</p>
-                <p className={styles.menuItem}>Trading List</p>
-                <p className={styles.menuItem}>Today's Coin</p>
-                <p className={styles.menuItem}>Admin Page</p>
+                <Link to="/" className={styles.menuItem}>Main</Link>
+                <Link to="/TradingList" className={styles.menuItem}>Trading List</Link>
+                <Link to="/Admin" className={styles.menuItem}>Admin Page</Link>
             </menu>
             <div className={styles.navButton}>
                 <button className={`${styles.button} ${styles.basic}`}>Login</button>

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import styles from './nowBuyCoin.module.scss';
+import styles from './mainPanel.module.scss';
 import Giraffe from './giraffe.svg';
 import GiraffeExiting from './giraffe_exiting.svg'
 import GiraffeSleep from './giraffe_sleep.svg'
@@ -31,7 +31,7 @@ const GiraffeImg = styled.img<{ speed: number }>`
     }
 `
 
-export default function NowBuyCoin({ market, nowPrice, pre }: NowBuyCoinType) {
+export default function MainPanel({ market, nowPrice, pre }: NowBuyCoinType) {
     const selectGiraffe = useCallback(
         (market: string, pre: number) => {
             if (market === "") return GiraffeSleep
@@ -44,15 +44,14 @@ export default function NowBuyCoin({ market, nowPrice, pre }: NowBuyCoinType) {
             } else {
                 return GiraffeManbung
             }
-        },
-        [GiraffeExiting, Giraffe],
+        },[]
     )
 
-    const checkPer = useCallback((pre : number) => {
-        if(pre > 0) return styles.plus;
-        if(pre < 0) return styles.minus;
+    const checkPer = useCallback((pre: number) => {
+        if (pre > 0) return styles.plus;
+        if (pre < 0) return styles.minus;
         return styles.zero;
-    },[])
+    }, [])
 
     return (
         <div className={`${styles.container} ${market === "" && styles.nonMarket} `}>
@@ -67,7 +66,6 @@ export default function NowBuyCoin({ market, nowPrice, pre }: NowBuyCoinType) {
                 <div className="rowFlex"><h1 className={`${styles.present} ${checkPer(pre)}`}>
                     {pre >= 0 ? "+" : "-"} {Math.abs(pre)} %</h1><p></p></div>
             </div>
-            {/* <img className={styles.giraffe} alt="giraffe" src={selectGiraffe(market, pre)}></img> */}
             <GiraffeImg speed={market === "" ? 0 : ((pre * -1) + 4) * 0.075 + 0.05} alt="giraffe" src={selectGiraffe(market, pre)}></GiraffeImg>
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/header';
 import './App.scss';
 import { Reset } from 'styled-reset'
-import Main from './container/main';
+import Main from './components/main';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import RouterCoinfig from './router/routerCoinfig';
 
@@ -14,7 +14,6 @@ function App() {
       <Reset />
       <div className="App">
         <Header></Header>
-        {/* <Main></Main> */}
         <RouterCoinfig></RouterCoinfig>
       </div>
     </QueryClientProvider>
