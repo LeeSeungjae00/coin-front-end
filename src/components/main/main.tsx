@@ -13,7 +13,7 @@ export default function Main() {
                     thead = {["Market", "Target Price"]}
                     tbody = {[["KRW-BTC", "123,123,123"],["KRW-BTC", "123,123,123"]]}
                 ></Table>
-                <div style={{ flexGrow: 1 }}>qwe</div>
+                <div style={{ width : '100%' }}>qwe</div>
             </div>
         </div>
     )

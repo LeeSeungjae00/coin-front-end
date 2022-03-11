@@ -16,9 +16,13 @@ export default function Table({ thead, tbody, onRowClick } : TableType) {
                 </div>
                 <div className={styles.theadLine}></div>
             </div>
-            <div>
-                
-            </div>
+            {
+                tbody.map((inner) => 
+                    <div className={styles.tableBody}>
+                    {inner.map(val => <p>{val}</p>)}
+                    </div>
+                )
+            }
         </div>
     )
 }
