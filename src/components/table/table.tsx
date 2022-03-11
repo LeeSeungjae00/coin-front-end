@@ -12,14 +12,14 @@ export default function Table({ thead, tbody, onRowClick } : TableType) {
         <div className={styles.table}>
             <div className={styles.tableHeader}>
                 <div className={styles.theadInner}>
-                    {thead.map(val => <p>{val}</p>)}
+                    {thead.map(val => <p key={val}>{val}</p>)}
                 </div>
                 <div className={styles.theadLine}></div>
             </div>
             {
                 tbody.map((inner) => 
-                    <div className={styles.tableBody}>
-                    {inner.map(val => <p>{val}</p>)}
+                    <div key = {inner.join()} className={styles.tableBody}>
+                    {inner.map(val => <p key = {val}>{val}</p>)}
                     </div>
                 )
             }
