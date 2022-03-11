@@ -9,6 +9,8 @@ export default function NowBuyCoin() {
             refetchInterval : 10000
         }
     );
+
+    if(isLoading) return <>loading</>
     return (
         <MainPanel
             market = {data.market}
