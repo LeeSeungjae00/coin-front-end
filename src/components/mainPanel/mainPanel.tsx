@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react'
 import styles from './mainPanel.module.scss';
-import Giraffe from './giraffe.svg';
-import GiraffeExiting from './giraffe_exiting.svg'
-import GiraffeSleep from './giraffe_sleep.svg'
-import GiraffeSad from './giraffe_sad.svg'
-import GiraffeManbung from './giraffe_manbung.svg'
-import Coin from './Bitcoin.svg';
+import Giraffe from '../../svgs/giraffe.svg';
+import GiraffeExiting from '../../svgs/giraffe_exiting.svg'
+import GiraffeSleep from '../../svgs/giraffe_sleep.svg'
+import GiraffeSad from '../../svgs/giraffe_sad.svg'
+import GiraffeManbung from '../../svgs/giraffe_manbung.svg'
+import Coin from '../../svgs/Bitcoin.svg';
 import styled from 'styled-components'
 
 
@@ -66,7 +66,7 @@ export default function MainPanel({ market, nowPrice, pre }: NowBuyCoinType) {
                 <div className="rowFlex"><h1 className={`${styles.present} ${checkPer(pre)}`}>
                     {pre >= 0 ? "+" : "-"} {Math.abs(pre)} %</h1><p></p></div>
             </div>
-            <GiraffeImg speed={market === "" ? 0 : ((pre * -1) + 4) * 0.075 + 0.05} alt="giraffe" src={selectGiraffe(market, pre)}></GiraffeImg>
+            <GiraffeImg speed={market === "" ? 0 : ((pre * -1) + 4) * 0.055 + 0.02} alt="giraffe" src={selectGiraffe(market, pre)}></GiraffeImg>
         </div>
     )
 }

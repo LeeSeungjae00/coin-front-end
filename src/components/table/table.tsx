@@ -18,7 +18,14 @@ export default function Table({ thead, tbody, onRowClick } : TableType) {
             </div>
             {
                 tbody.map((inner) => 
-                    <div key = {inner.join()} className={styles.tableBody}>
+                    <div 
+                        key = {inner.join()} 
+                        className={styles.tableBody}
+                        onClick={() => {
+                            if(onRowClick)
+                                onRowClick(inner[0])
+                        }}
+                    >
                     {inner.map(val => <p key = {val}>{val}</p>)}
                     </div>
                 )
