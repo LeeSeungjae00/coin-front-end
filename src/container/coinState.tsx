@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from 'react-query';
 import InfoPanel from '../components/infoPanel'
 
@@ -8,7 +8,7 @@ interface CoinStateType {
 }
 
 export default function CoinState({ market }: CoinStateType) {
-    const { data, isLoading } = useQuery(["coinState", market], () =>
+    const { data, isLoading, refetch } = useQuery(["coinState", market], () =>
         axios.get(`/coinState`, {
             params: {
                 market
@@ -17,6 +17,7 @@ export default function CoinState({ market }: CoinStateType) {
         refetchInterval: 10000
     }
     );
+
     return (
         <InfoPanel {...data}></InfoPanel>
     )
