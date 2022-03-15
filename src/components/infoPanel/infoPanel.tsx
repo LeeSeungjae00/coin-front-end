@@ -9,9 +9,9 @@ interface InfoPanelType {
 export default function InfoPanel({nowPrice, preRise, moneyRise} : InfoPanelType) {
     return (
         <div style={{width : "100%"}}>
-            <div>{nowPrice}</div>
-            <div>{preRise}</div>
-            <div>{moneyRise}</div>
+            <div>현재가 : {nowPrice}</div>
+            <div>상승 퍼센트 : {preRise} %</div>
+            <div>상승 원 :{moneyRise} ₩</div>
         </div>
     )
 }
