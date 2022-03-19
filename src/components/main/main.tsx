@@ -12,8 +12,7 @@ export default function Main() {
     const [marketInfo, setMarketInfo] = React.useState<string>('')
     const onRowClick= (rowVal : string) => {
         setMarketInfo(rowVal)
-    }
-    
+    }  
     return (
         <div className={styles.main}>
             <NowBuyCoin></NowBuyCoin>
