@@ -16,9 +16,9 @@ export default function InfoPanel({ coinMarket, nowPrice, preRise, moneyRise, op
                 💵 {coinMarket}  <p className={nowPrice >= openingPrice ? styles.up : styles.down}>&nbsp;</p>
             </div>
             <div className={styles.marketInfo}>
-                <p><b>✓</b> {coinMarket}은 현재 {nowPrice}₩ 으로 전날보다 {nowPrice - openingPrice}상승중이에요.</p>
-                <p><b>✓</b> {preRise}% 상승시 구매 가능해요</p>
-                <p><b>✓</b> {moneyRise}₩ 상승시 구매 가능해요</p>
+                <p><b>✓</b> {coinMarket}은 현재 {nowPrice}₩ 으로 전날보다 {(nowPrice - openingPrice)}{nowPrice >= openingPrice ? "상승중" : "하락중"}이에요.</p>
+                <p><b>✓</b> {Math.abs(preRise)}% {preRise > 0 ? "상승 시" : "하락시"} 구매 가능해요</p>
+                <p><b>✓</b> {Math.abs(moneyRise)}₩ {preRise > 0 ? "상승 시" : "하락시"} 구매 가능해요</p>
             </div>
 
         </div>
