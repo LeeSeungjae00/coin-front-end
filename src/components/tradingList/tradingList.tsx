@@ -16,17 +16,17 @@ export default function TradingList() {
         status
     } = useInfiniteQuery<any>(
         "getTradingList",
-        async (_) => {
+        async ({ pageParam = 0 }) => {
             const res = await axios.get('/tradingHistory',{
                 params : {
-                    index : _.pageParam
+                    index : pageParam
                 }
             })
             return res.data;
         },
         {
             getNextPageParam : (lastPage, _pages) => {
-                return lastPage.nextIndex;
+                return lastPage.nextIndex ?? false;
             }
         }
     )
@@ -49,6 +49,7 @@ export default function TradingList() {
             }>
                 {
                     data && 
+
                     data.pages.map(
                         (val) => val.history.map(
                             (his : any) => {
@@ -57,7 +58,7 @@ export default function TradingList() {
                                  key = {his.buyDate}>{his.market}</p>;
                     }))
                 }
-                <div ref= {ref}></div>
+                
             </div>
         </div>
     )
