@@ -3,11 +3,9 @@ import { useInView } from 'react-intersection-observer'
 import { useInfiniteQuery } from 'react-query'
 import axios, { AxiosResponse } from 'axios'
 
-interface hookType {
-    infinityQuery : (pageParam : String) => Promise<AxiosResponse<any, any>>
-}
+type infinityQueryType = (pageParam : String) =>  Promise<AxiosResponse<any, any>>;
 
-export default function infinityScrollHook({infinityQuery} : hookType) {
+export default function infinityScrollHook(infinityQuery : infinityQueryType) {
     const {ref, inView} = useInView();
     const {
         data,
@@ -49,6 +47,6 @@ export default function infinityScrollHook({infinityQuery} : hookType) {
         isFetching,
         isFetchingNextPage,
         status,
-        ref
+        RefDiv : <div ref = {ref} />
     }
 }

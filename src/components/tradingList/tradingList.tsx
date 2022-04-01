@@ -2,40 +2,17 @@ import axios from 'axios'
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useInfiniteQuery } from 'react-query'
+import infinityScrollHook from '../../hooks/infinityScrollHooks'
 import styles from './tradingList.module.scss'
 
 export default function TradingList() {
-    const {ref, inView} = useInView();
-    const {
-        data,
-        error, 
-        fetchNextPage, 
-        hasNextPage, 
-        isFetching,
-        isFetchingNextPage,
-        status
-    } = useInfiniteQuery<any>(
-        "getTradingList",
-        async ({ pageParam = 0 }) => {
-            const res = await axios.get('/tradingHistory',{
-                params : {
-                    index : pageParam
-                }
-            })
-            return res.data;
-        },
-        {
-            getNextPageParam : (lastPage, _pages) => {
-                return lastPage.nextIndex ?? false;
+    const {data, status} = infinityScrollHook((pageParam : String) => {
+        return axios.get('/tradingHistory',{
+            params : {
+                index : pageParam
             }
-        }
-    )
-
-    React.useEffect(() => {
-        console.log(inView)
-        if(inView) fetchNextPage();
-        return () => {}
-    }, [inView])
+        })
+    })
 
     if(status === "loading") return <>loading</>
 
