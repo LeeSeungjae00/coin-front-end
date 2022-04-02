@@ -2,11 +2,11 @@ import axios from 'axios'
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import { useInfiniteQuery } from 'react-query'
-import infinityScrollHook from '../../hooks/infinityScrollHooks'
+import useInfinityScroll from '../../hooks/infinityScrollHooks'
 import styles from './tradingList.module.scss'
 
 export default function TradingList() {
-    const {data, status} = infinityScrollHook((pageParam : String) => {
+    const {data, status, RefDiv} = useInfinityScroll((pageParam : String) => {
         return axios.get('/tradingHistory',{
             params : {
                 index : pageParam

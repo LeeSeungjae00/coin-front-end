@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from 'axios'
 
 type infinityQueryType = (pageParam : String) =>  Promise<AxiosResponse<any, any>>;
 
-export default function infinityScrollHook(infinityQuery : infinityQueryType) {
+export default function useInfinityScroll(infinityQuery : infinityQueryType) {
     const {ref, inView} = useInView();
     const {
         data,
@@ -18,11 +18,7 @@ export default function infinityScrollHook(infinityQuery : infinityQueryType) {
     } = useInfiniteQuery<any>(
         "getTradingList",
         async ({ pageParam = 0 }) => {
-            const res = await axios.get('/tradingHistory',{
-                params : {
-                    index : pageParam
-                }
-            })
+            const res = await infinityQuery(pageParam);
             return res.data;
         },
         {
