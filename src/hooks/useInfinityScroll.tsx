@@ -31,8 +31,9 @@ export default function useInfinityScroll(infinityQuery : infinityQueryType) {
 
     useEffect(() => {
         if(inView) fetchNextPage();
+        console.log(inView)
         return () => {}
-    },[])
+    },[inView])
 
 
     return {
@@ -43,6 +44,6 @@ export default function useInfinityScroll(infinityQuery : infinityQueryType) {
         isFetching,
         isFetchingNextPage,
         status,
-        RefDiv : <div ref = {ref} />
+        RefDiv : <div key = "infinityKeyDiv" ref = {ref} />
     }
 }
