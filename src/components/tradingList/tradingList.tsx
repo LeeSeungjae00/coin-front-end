@@ -34,13 +34,15 @@ export default function TradingList() {
         <div className={styles.tradingList}>
             <div className={
                 styles.tradingListBox
-            }></div>
-             <div className={
-                styles.chartBox
             }>
                 {
                     makeTradingList(data,RefDiv)
                 }
+            </div>
+             <div className={
+                styles.chartBox
+            }>
+                
             </div>
         </div>
     )
