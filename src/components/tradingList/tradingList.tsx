@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React from 'react'
-import { useInView } from 'react-intersection-observer'
-import { useInfiniteQuery } from 'react-query'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
+import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
 
 export default function TradingList() {
@@ -35,6 +34,7 @@ export default function TradingList() {
             <div className={
                 styles.tradingListBox
             }>
+                <TradingCard></TradingCard>
                 {
                     makeTradingList(data,RefDiv)
                 }

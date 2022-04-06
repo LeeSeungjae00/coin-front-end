@@ -52,11 +52,11 @@
 
     // color: #FF7878;
     &.minus{
-        color: #BEBDFF;
+        color: $down-color;
     }
 
     &.plus{
-        color: #FF7878;
+        color: $up-color;
     }
 
     &.zero{

@@ -1,11 +1,12 @@
 .tradingList{
     display: flex;
+    padding-top: 3rem;
 }
 
 .tradingListBox{
-    width: 100%;
+    flex-grow: 1;
 }
 
 .chartBox{
-    width: 100%;
+    flex-grow: 2;
 }
