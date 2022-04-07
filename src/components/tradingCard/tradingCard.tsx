@@ -2,7 +2,14 @@ import React from 'react'
 import styles from './tradingCard.module.scss'
 import Giraffe from '../../svgs/giraffe'
 
-export default function TradingCard() {
+interface TradingCardType{
+    title : String
+    buyTime : String
+    sellTime : String
+    profit : number
+}
+
+export default function TradingCard({title, buyTime, sellTime, profit} : TradingCardType) {
     return (
         <div className = {styles.tradingCard}>
             <div className={styles.titleAndTime}>
@@ -18,9 +25,12 @@ export default function TradingCard() {
             </div>
             <div className={styles.giraffAndPrice}>
                 <div className={styles.giraffRapper}>
-                <Giraffe width="51" height="47"></Giraffe>
+                    <Giraffe width="51" height="47"></Giraffe>
                 </div>
+                <div className={styles.price}>
+                    +300 ₩
                 </div>
+            </div>
         </div>
     )
 }
