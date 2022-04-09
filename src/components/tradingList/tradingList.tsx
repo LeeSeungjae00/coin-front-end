@@ -19,9 +19,14 @@ export default function TradingList() {
         const tradingList = data.pages.map(
             (val : any) => val.history.map(
                 (his : any) => {
-                    return <p
-                    style={{height : "6rem"}}
-                     key = {his.buyDate}>{his.market}</p>;
+                    return <TradingCard
+                        title={his.market}
+                        buyTime={his.butPrice}
+                        sellTime={his.sellBalance}
+                        profit={his.sellBalance === null ? 
+                            "지금 보유중 입니다": 
+                            his.sellBalance - his.buyBalance}
+                    ></TradingCard>
         }))
 
         tradingList.push(RefDiv);
@@ -34,7 +39,7 @@ export default function TradingList() {
             <div className={
                 styles.tradingListBox
             }>
-                <TradingCard></TradingCard>
+                {/* <TradingCar title={data.}></TradingCard> */}
                 {
                     makeTradingList(data,RefDiv)
                 }

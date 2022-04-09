@@ -6,7 +6,7 @@ interface TradingCardType{
     title : String
     buyTime : String
     sellTime : String
-    profit : number
+    profit : String | Number
 }
 
 export default function TradingCard({title, buyTime, sellTime, profit} : TradingCardType) {
@@ -14,10 +14,10 @@ export default function TradingCard({title, buyTime, sellTime, profit} : Trading
         <div className = {styles.tradingCard}>
             <div className={styles.titleAndTime}>
                 <div className={styles.title}>
-                    KRW-BTC
+                    {title}
                 </div>
                 <div className={styles.time}>
-                    2022-03-26 01:55:16 매수
+                    {buyTime}
                 </div>
                 <div className={styles.time}>
                     2022-03-26 01:55:16 매도
