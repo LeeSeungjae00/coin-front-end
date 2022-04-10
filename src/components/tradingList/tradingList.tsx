@@ -25,7 +25,7 @@ export default function TradingList() {
                         buyTime={his.buyDate}
                         sellTime={his.sellDate}
                         profit={his.sellBalance === null ? 
-                            "지금 보유중 입니다": 
+                            "ing": 
                             his.sellBalance - his.buyBalance}
                     ></TradingCard>
         }))
