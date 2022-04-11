@@ -16,13 +16,14 @@ export default function TradingList() {
     if(status === "loading") return <>loading</>
 
     const makeTradingList = (data : any, RefDiv : any) => {
+        
         const tradingList = data.pages.map(
             (val : any) => val.history.map(
                 (his : any) => {
                     return <TradingCard
                         title={his.market}
-                        buyTime={his.butPrice}
-                        sellTime={his.sellBalance}
+                        buyTime={his.buyDate}
+                        sellTime={his.sellDate}
                         profit={his.sellBalance === null ? 
                             "지금 보유중 입니다": 
                             his.sellBalance - his.buyBalance}

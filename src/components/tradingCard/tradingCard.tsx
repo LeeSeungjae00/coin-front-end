@@ -20,7 +20,7 @@ export default function TradingCard({title, buyTime, sellTime, profit} : Trading
                     {buyTime}
                 </div>
                 <div className={styles.time}>
-                    2022-03-26 01:55:16 매도
+                    {sellTime}
                 </div>
             </div>
             <div className={styles.giraffAndPrice}>
@@ -28,7 +28,7 @@ export default function TradingCard({title, buyTime, sellTime, profit} : Trading
                     <Giraffe width="51" height="47"></Giraffe>
                 </div>
                 <div className={styles.price}>
-                    +300 ₩
+                    {profit}
                 </div>
             </div>
         </div>
