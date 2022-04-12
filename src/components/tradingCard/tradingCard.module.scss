@@ -45,10 +45,17 @@
 .price{
     letter-spacing: 0.08em;
     font-size: 20px;
+    color: #FFFFFF;
+
+    &.minus{
+        color: $down-color;
+    }
+    &.plus{
+        color: $up-color;
+    }
 }
 
 .giraffAndPrice{
-    color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: space-between;
