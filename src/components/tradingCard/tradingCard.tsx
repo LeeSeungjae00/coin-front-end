@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './tradingCard.module.scss'
-import Giraffe from '../../svgs/giraffe'
+import Giraffe from '../../svgs/giraffe.svg';
+import GiraffeSad from '../../svgs/giraffe_sad.svg'
 
 interface TradingCardType{
     title : String
@@ -12,12 +13,12 @@ interface TradingCardType{
 export default function TradingCard({title, buyTime, sellTime, profit} : TradingCardType) {
     const checkProfit = (profit: String | Number) => {
         if (typeof profit === "string") {
-            return ;
+            return [,<img width="51" height="47" src={Giraffe}></img>];
         }
         if (profit > 0) {
-            return styles.plus;
+            return [styles.plus,<img width="51" height="47" src={Giraffe}></img>];
         } else {
-            return styles.minus;
+            return [styles.minus,<img width="51" height="47" src={GiraffeSad}></img>];
         }
     }
     return (
@@ -35,9 +36,11 @@ export default function TradingCard({title, buyTime, sellTime, profit} : Trading
             </div>
             <div className={styles.giraffAndPrice}>
                 <div className={styles.giraffRapper}>
-                    <Giraffe width="51" height="47"></Giraffe>
+                    {
+                        checkProfit(profit)[1]
+                    }
                 </div>
-                <div className={`${styles.price} ${checkProfit(profit)}`}>
+                <div className={`${styles.price} ${checkProfit(profit)[0]}`}>
                     {profit}
                 </div>
             </div>
