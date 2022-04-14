@@ -40,7 +40,6 @@ export default function TradingList() {
             <div className={
                 styles.tradingListBox
             }>
-                {/* <TradingCar title={data.}></TradingCard> */}
                 {
                     makeTradingList(data,RefDiv)
                 }

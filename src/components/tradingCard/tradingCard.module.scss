@@ -9,6 +9,11 @@
     border-radius: 6px;
     display: flex;
     margin-bottom: 1rem;
+    transition: all ease 0.3s 0s;
+    &:hover{
+        padding: 8px;
+        padding-bottom: 0px;
+    }
 }
 
 .titleAndTime {
