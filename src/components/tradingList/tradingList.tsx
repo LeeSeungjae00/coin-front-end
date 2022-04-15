@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { InfiniteData } from 'react-query'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
@@ -15,7 +16,7 @@ export default function TradingList() {
 
     if(status === "loading") return <>loading</>
 
-    const makeTradingList = (data : any, RefDiv : any) => {
+    const makeTradingList = (data : InfiniteData<any>, RefDiv: JSX.Element) => {
         
         const tradingList = data.pages.map(
             (val : any) => val.history.map(
@@ -41,7 +42,7 @@ export default function TradingList() {
                 styles.tradingListBox
             }>
                 {
-                    makeTradingList(data,RefDiv)
+                    data && makeTradingList(data,RefDiv)
                 }
             </div>
              <div className={
