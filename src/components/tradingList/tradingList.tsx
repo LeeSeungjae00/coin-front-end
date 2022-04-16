@@ -5,6 +5,8 @@ import useInfinityScroll from '../../hooks/useInfinityScroll'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
 
+
+
 export default function TradingList() {
     const {data, status, RefDiv} = useInfinityScroll((pageParam : String) => {
         return axios.get('/tradingHistory',{
@@ -13,7 +15,7 @@ export default function TradingList() {
             }
         })
     })
-
+    
     if(status === "loading") return <>loading</>
 
     const makeTradingList = (data : InfiniteData<any>, RefDiv: JSX.Element) => {
