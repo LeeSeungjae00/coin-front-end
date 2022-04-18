@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { InfiniteData } from 'react-query'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
+import { historyType, tradingHistoryApiType } from '../../types/axiosType'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
 
@@ -18,11 +19,11 @@ export default function TradingList() {
     
     if(status === "loading") return <>loading</>
 
-    const makeTradingList = (data : InfiniteData<any>, RefDiv: JSX.Element) => {
+    const makeTradingList = (data : InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
         
         const tradingList = data.pages.map(
-            (val : any) => val.history.map(
-                (his : any) => {
+            (val : tradingHistoryApiType) => val.history.map(
+                (his : historyType) => {
                     return <TradingCard
                         title={his.market}
                         buyTime={his.buyDate}
@@ -33,9 +34,8 @@ export default function TradingList() {
                     ></TradingCard>
         }))
 
-        tradingList.push(RefDiv);
 
-        return tradingList
+        return [tradingList, RefDiv]
     }
 
     return (

@@ -21,6 +21,6 @@ export interface historyType {
 }
 
 export interface tradingHistoryApiType {
-    history : historyType
+    history : historyType[]
     nextIndex : number
 }
