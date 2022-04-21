@@ -14,11 +14,11 @@ import {
     Title,
     Tooltip,
     Legend,
-  } from 'chart.js';
-  import { Line } from 'react-chartjs-2';
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
 
-  ChartJS.register(
+ChartJS.register(
     CategoryScale,
     LinearScale,
     PointElement,
@@ -26,67 +26,63 @@ import {
     Title,
     Tooltip,
     Legend
-  );
-  
-  export const options = {
+);
+
+export const options = {
     responsive: true,
     plugins: {
-      legend: {
-        position: 'top' as const,
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart',
-      },
+        legend: {
+            position: 'top' as const,
+        },
+        title: {
+            display: true,
+            text: '내 잔고 차트',
+        },
     },
-  };
-  
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
-  export const chartData = {
-    labels,
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: labels.map(() => Math.random()),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: labels.map(() => Math.random()),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
-  };
-  
+};
+
+
+
 
 export default function TradingList() {
-    const {data, status, RefDiv} = useInfinityScroll((pageParam : String) => {
-        return axios.get('/tradingHistory',{
-            params : {
-                index : pageParam
+    const { data, status, RefDiv } = useInfinityScroll((pageParam: String) => {
+        return axios.get('/tradingHistory', {
+            params: {
+                index: pageParam
             }
         })
     })
-    
-    if(status === "loading") return <>loading</>
 
-    const makeTradingList = (data : InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
-        
+    if (status === "loading") return <>loading</>
+
+    const [labels, setLabels] = React.useState(['January', 'February', 'March', 'April', 'May', 'June', 'July']);
+
+    const [chartData, setCharData] = React.useState({
+        labels,
+        datasets: [
+            {
+                label: 'KRW',
+                data: labels.map(() => Math.random()),
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+        ],
+    });
+
+    const makeTradingList = (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
+
         const tradingList = data.pages.map(
-            (val : tradingHistoryApiType) => val.history.map(
-                (his : historyType) => {
+            (val: tradingHistoryApiType) => val.history.map(
+                (his: historyType) => {
                     return <TradingCard
                         title={his.market}
                         buyTime={his.buyDate}
                         sellTime={his.sellDate}
-                        profit={his.sellBalance === null ? 
-                            "ing": 
+                        profit={his.sellBalance === null ?
+                            "ing" :
                             his.sellBalance - his.buyBalance}
                     ></TradingCard>
-        }))
+                }))
 
 
         return [tradingList, RefDiv]
@@ -98,13 +94,13 @@ export default function TradingList() {
                 styles.tradingListBox
             }>
                 {
-                    data && makeTradingList(data,RefDiv)
+                    data && makeTradingList(data, RefDiv)
                 }
             </div>
-             <div className={
+            <div className={
                 styles.chartBox
             }>
-                <Line options={options} data={chartData} />;
+                <Line options={options} data={chartData} />
             </div>
         </div>
     )
