@@ -53,8 +53,7 @@ export default function TradingList() {
         })
     })
 
-    if (status === "loading") return <>loading</>
-
+    
     const [labels, setLabels] = React.useState(['January', 'February', 'March', 'April', 'May', 'June', 'July']);
 
     const [chartData, setCharData] = React.useState({
@@ -87,6 +86,8 @@ export default function TradingList() {
 
         return [tradingList, RefDiv]
     }
+
+    if (status === "loading") return <>loading</>
 
     return (
         <div className={styles.tradingList}>
