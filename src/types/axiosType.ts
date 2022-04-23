@@ -20,6 +20,7 @@ export interface historyType {
     sellPrice: number
 }
 
+
 export interface tradingHistoryApiType {
     history : historyType[]
     nextIndex : number

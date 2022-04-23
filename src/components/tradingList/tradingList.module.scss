@@ -9,4 +9,9 @@
 
 .chartBox{
     width: 70%;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    padding: 2rem;
+    box-sizing: border-box;
 }
