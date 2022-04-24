@@ -52,10 +52,8 @@ export default function TradingList() {
             }
         })
     })
-
-    
+ 
     const [labels, setLabels] = React.useState(['January', 'February', 'March', 'April', 'May', 'June', 'July']);
-
     const [chartData, setCharData] = React.useState({
         labels,
         datasets: [
@@ -67,9 +65,7 @@ export default function TradingList() {
             }
         ],
     });
-
     const makeTradingList = (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
-
         const tradingList = data.pages.map(
             (val: tradingHistoryApiType) => val.history.map(
                 (his: historyType) => {
@@ -82,10 +78,27 @@ export default function TradingList() {
                             his.sellBalance - his.buyBalance}
                     ></TradingCard>
                 }))
-
-
         return [tradingList, RefDiv]
     }
+
+    React.useEffect(() => {
+        const labelArray: React.SetStateAction<string[]> = []
+        data && data.pages.map(page => 
+            page.history.forEach(tradingInfo => labelArray.push(" "))
+        );
+        setLabels(labelArray)
+        setCharData({
+            labels,
+            datasets: [
+                {
+                    label: 'KRW',
+                    data: labels.map(() => Math.random()),
+                    borderColor: 'rgb(255, 99, 132)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                }
+            ],
+        })
+    }, [data])
 
     if (status === "loading") return <>loading</>
 
