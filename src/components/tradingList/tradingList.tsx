@@ -83,8 +83,12 @@ export default function TradingList() {
 
     React.useEffect(() => {
         const labelArray: React.SetStateAction<string[]> = []
+        const dataArray: React.SetStateAction<number[]> = []
         data && data.pages.map(page => 
-            page.history.forEach(tradingInfo => labelArray.push(" "))
+            page.history.forEach(tradingInfo => {
+                labelArray.push(" ")
+                dataArray.push(tradingInfo.sellBalance)
+            })
         );
         setLabels(labelArray)
         setCharData({
@@ -92,7 +96,7 @@ export default function TradingList() {
             datasets: [
                 {
                     label: 'KRW',
-                    data: labels.map(() => Math.random()),
+                    data: dataArray,
                     borderColor: 'rgb(255, 99, 132)',
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 }
