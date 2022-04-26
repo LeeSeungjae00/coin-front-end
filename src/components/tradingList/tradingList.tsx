@@ -86,8 +86,8 @@ export default function TradingList() {
         const dataArray: React.SetStateAction<number[]> = []
         data && data.pages.map(page => 
             page.history.forEach(tradingInfo => {
-                labelArray.push(" ")
-                dataArray.push(tradingInfo.sellBalance)
+                labelArray.push(tradingInfo.market)
+                dataArray.unshift(tradingInfo.sellBalance)
             })
         );
         setLabels(labelArray)
