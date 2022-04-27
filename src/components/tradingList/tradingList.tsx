@@ -53,7 +53,7 @@ export default function TradingList() {
         })
     })
  
-    const [labels, setLabels] = React.useState(['January', 'February', 'March', 'April', 'May', 'June', 'July']);
+    const [labels, setLabels] = React.useState(['']);
     const [chartData, setCharData] = React.useState({
         labels,
         datasets: [

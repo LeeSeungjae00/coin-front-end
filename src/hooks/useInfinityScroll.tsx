@@ -33,7 +33,6 @@ export default function useInfinityScroll(infinityQuery: infinityQueryType) {
 
     useEffect(() => {
         if (inView) fetchNextPage();
-        console.log(inView)
         return () => { }
     }, [inView])
 
