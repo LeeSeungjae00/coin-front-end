@@ -5,41 +5,7 @@ import useInfinityScroll from '../../hooks/useInfinityScroll'
 import { historyType, tradingHistoryApiType } from '../../types/axiosType'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
 
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-);
-
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top' as const,
-        },
-        title: {
-            display: true,
-            text: '내 잔고 차트',
-        },
-    },
-};
 
 
 
@@ -65,21 +31,24 @@ export default function TradingList() {
             }
         ],
     });
-    const makeTradingList = (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
-        const tradingList = data.pages.map(
-            (val: tradingHistoryApiType) => val.history.map(
-                (his: historyType) => {
-                    return <TradingCard
-                        title={his.market}
-                        buyTime={his.buyDate}
-                        sellTime={his.sellDate}
-                        profit={his.sellBalance === null ?
-                            "ing" :
-                            his.sellBalance - his.buyBalance}
-                    ></TradingCard>
-                }))
-        return [tradingList, RefDiv]
-    }
+    const makeTradingList = React.useCallback(
+        (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
+            const tradingList = data.pages.map(
+                (val: tradingHistoryApiType) => val.history.map(
+                    (his: historyType) => {
+                        return <TradingCard
+                            title={his.market}
+                            buyTime={his.buyDate}
+                            sellTime={his.sellDate}
+                            profit={his.sellBalance === null ?
+                                "ing" :
+                                his.sellBalance - his.buyBalance}
+                        ></TradingCard>
+                    }))
+            return [tradingList, RefDiv]
+        },
+        [],
+    ) 
 
     React.useEffect(() => {
         const labelArray: React.SetStateAction<string[]> = []
