@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React from 'react'
 import { InfiniteData } from 'react-query'
+import useChartHook from '../../hooks/useChartHook'
 import useInfinityScroll from '../../hooks/useInfinityScroll'
 import { historyType, tradingHistoryApiType } from '../../types/axiosType'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
-
+import { Line } from 'react-chartjs-2';
 
 
 
@@ -18,19 +19,8 @@ export default function TradingList() {
             }
         })
     })
+    const {options, chartData} = useChartHook(data)
  
-    const [labels, setLabels] = React.useState(['']);
-    const [chartData, setCharData] = React.useState({
-        labels,
-        datasets: [
-            {
-                label: 'KRW',
-                data: labels.map(() => Math.random()),
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            }
-        ],
-    });
     const makeTradingList = React.useCallback(
         (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
             const tradingList = data.pages.map(
@@ -50,28 +40,7 @@ export default function TradingList() {
         [],
     ) 
 
-    React.useEffect(() => {
-        const labelArray: React.SetStateAction<string[]> = []
-        const dataArray: React.SetStateAction<number[]> = []
-        data && data.pages.map(page => 
-            page.history.forEach(tradingInfo => {
-                labelArray.push(tradingInfo.market)
-                dataArray.unshift(tradingInfo.sellBalance)
-            })
-        );
-        setLabels(labelArray)
-        setCharData({
-            labels,
-            datasets: [
-                {
-                    label: 'KRW',
-                    data: dataArray,
-                    borderColor: 'rgb(255, 99, 132)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                }
-            ],
-        })
-    }, [data])
+    
 
     if (status === "loading") return <>loading</>
 
