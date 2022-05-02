@@ -6,7 +6,7 @@ import useInfinityScroll from '../../hooks/useInfinityScroll'
 import { historyType, tradingHistoryApiType } from '../../types/axiosType'
 import TradingCard from '../tradingCard/tradingCard'
 import styles from './tradingList.module.scss'
-import { Line } from 'react-chartjs-2';
+
 
 
 
@@ -19,7 +19,7 @@ export default function TradingList() {
             }
         })
     })
-    const {options, chartData} = useChartHook(data)
+    const Chart = useChartHook(data)
  
     const makeTradingList = React.useCallback(
         (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
@@ -56,7 +56,7 @@ export default function TradingList() {
             <div className={
                 styles.chartBox
             }>
-                <Line options={options} data={chartData} />
+                {Chart}
             </div>
         </div>
     )

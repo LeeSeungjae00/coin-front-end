@@ -10,10 +10,9 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 import { InfiniteData } from 'react-query';
 import { tradingHistoryApiType } from '../types/axiosType';
-
+import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
     CategoryScale,
@@ -26,13 +25,12 @@ ChartJS.register(
 );
 
 export default function useChartHook(data : InfiniteData<tradingHistoryApiType> | undefined) {
-    const [labels, setLabels] = React.useState(['']);
     const [chartData, setCharData] = React.useState({
-        labels,
+        labels : [""],
         datasets: [
             {
                 label: 'KRW',
-                data: labels.map(() => Math.random()),
+                data: [0],
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             }
@@ -51,7 +49,7 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
         },
     };
     React.useEffect(() => {
-        const labelArray: React.SetStateAction<string[]> = []
+        const labelArray: string[] = []
         const dataArray: React.SetStateAction<number[]> = []
         data && data.pages.map(page => 
             page.history.forEach(tradingInfo => {
@@ -59,9 +57,8 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
                 dataArray.unshift(tradingInfo.sellBalance)
             })
         );
-        setLabels(labelArray)
         setCharData({
-            labels,
+            labels : labelArray,
             datasets: [
                 {
                     label: 'KRW',
@@ -72,8 +69,5 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
             ],
         })
     }, [data])
-    return {
-        options,
-        chartData
-    }
+    return <Line options={options} data={chartData} />
 }
