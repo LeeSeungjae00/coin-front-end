@@ -53,7 +53,7 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
         const dataArray: React.SetStateAction<number[]> = []
         data && data.pages.map(page => 
             page.history.forEach(tradingInfo => {
-                labelArray.push(tradingInfo.market)
+                labelArray.unshift(tradingInfo.market)
                 dataArray.unshift(tradingInfo.sellBalance)
             })
         );
