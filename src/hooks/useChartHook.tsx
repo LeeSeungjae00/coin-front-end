@@ -35,9 +35,19 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             }
         ],
+        dataSetIds : [0]
     });
     const options = {
         responsive: true,
+        event : ['click'],
+        onClick : (evt : any, element : any) => {
+            console.log(evt, element);
+            if(element.length > 0){
+                console.log(chartData.dataSetIds[element[0].index])
+            }
+            
+
+        },
         plugins: {
             legend: {
                 position: 'top' as const,
@@ -51,10 +61,12 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
     React.useEffect(() => {
         const labelArray: string[] = []
         const dataArray: React.SetStateAction<number[]> = []
+        const idArray: React.SetStateAction<number[]> = []
         data && data.pages.map(page => 
             page.history.forEach(tradingInfo => {
                 labelArray.unshift(tradingInfo.market)
                 dataArray.unshift(tradingInfo.sellBalance)
+                idArray.unshift(tradingInfo.id)
             })
         );
         setCharData({
@@ -67,6 +79,7 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
                     backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 }
             ],
+            dataSetIds : idArray
         })
     }, [data])
     return <Line options={options} data={chartData} />

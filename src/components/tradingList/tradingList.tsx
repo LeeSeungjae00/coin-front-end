@@ -27,7 +27,7 @@ export default function TradingList() {
                 (val: tradingHistoryApiType) => val.history.map(
                     (his: historyType) => {
                         return <TradingCard
-                            key={his.c_id}
+                            key={his.id} 
                             title={his.market}
                             buyTime={his.buyDate}
                             sellTime={his.sellDate}
