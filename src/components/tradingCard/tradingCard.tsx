@@ -2,17 +2,16 @@ import React from 'react'
 import styles from './tradingCard.module.scss'
 import Giraffe from '../../svgs/giraffe.svg';
 import GiraffeSad from '../../svgs/giraffe_sad.svg'
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 interface TradingCardType{
     title : String
     buyTime : String
     sellTime : String
     profit : String | Number
-    key : number
+    id : number
 }
 
-export default function TradingCard({title, buyTime, sellTime, profit, key} : TradingCardType) {
+export default function TradingCard({title, buyTime, sellTime, profit, id} : TradingCardType) {
     const checkProfit = (profit: String | Number) => {
         if (typeof profit === "string") {
             return [,<img width="51" height="47" src={Giraffe}></img>];
@@ -26,6 +25,7 @@ export default function TradingCard({title, buyTime, sellTime, profit, key} : Tr
     return (
         
         <div className = {styles.tradingCard}>
+            <div id = {id.toString()}/>
             <div className={styles.titleAndTime}>
                 <div className={styles.title}>
                     {title}
@@ -47,7 +47,6 @@ export default function TradingCard({title, buyTime, sellTime, profit, key} : Tr
                     {profit}
                 </div>
             </div>
-            <Element name={key.toString()} className={key.toString()}></Element>
         </div>
     )
 }
