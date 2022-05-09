@@ -13,6 +13,7 @@ import {
 import { InfiniteData } from 'react-query';
 import { tradingHistoryApiType } from '../types/axiosType';
 import { Line } from 'react-chartjs-2';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 ChartJS.register(
     CategoryScale,
@@ -44,7 +45,10 @@ export default function useChartHook(data : InfiniteData<tradingHistoryApiType> 
             console.log(evt, element);
             if(element.length > 0){
                 console.log(chartData.dataSetIds[element[0].index])
+                const section = document.getElementById(`${chartData.dataSetIds[element[0].index]}`)
+                section && section.scrollIntoView( { behavior: 'smooth', block: 'start' } );
             }
+            
             
 
         },

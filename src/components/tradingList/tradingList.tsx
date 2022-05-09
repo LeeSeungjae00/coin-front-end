@@ -28,6 +28,7 @@ export default function TradingList() {
                     (his: historyType) => {
                         return <TradingCard
                             key={his.id} 
+                            id = {his.id}
                             title={his.market}
                             buyTime={his.buyDate}
                             sellTime={his.sellDate}
