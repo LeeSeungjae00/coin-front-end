@@ -9,6 +9,7 @@ export default function RouterCoinfig() {
         <Routes>
             <Route path = "/" element={<Main></Main>}></Route>
             <Route path = "/tradingList" element={<TradingList></TradingList>}></Route>
+            <Route path = "/contect" element={<Contect></Contect>}></Route>
         </Routes>
     )
 }
