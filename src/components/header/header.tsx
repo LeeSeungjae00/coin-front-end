@@ -16,7 +16,7 @@ export default function Header() {
             </menu>
             <div className={styles.navButton}>
                 <button className={`${styles.button} ${styles.basic}`}>Login</button>
-                <button className={`${styles.button} ${styles.colorful}`}>Contect</button>
+                <Link to="/contect" className={`${styles.button} ${styles.colorful}`}>Contect</Link>
             </div>
         </div>
     )
