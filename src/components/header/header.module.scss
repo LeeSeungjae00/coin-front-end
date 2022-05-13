@@ -64,6 +64,9 @@
     position: static;
     width: 123px;
     height: 46px;
+    text-decoration: solid;
+    box-sizing: border-box;
+    font-size: 13px;
     &.basic{
         background-color: #fff;
     }
@@ -71,6 +74,4 @@
         background: $main-gradient;
         color: #fff;
     }
-
-    
 }
