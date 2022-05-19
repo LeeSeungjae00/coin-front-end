@@ -6,7 +6,7 @@ import GiraffeSleep from '../../svgs/giraffe_sleep.svg'
 import GiraffeSad from '../../svgs/giraffe_sad.svg'
 import GiraffeManbung from '../../svgs/giraffe_manbung.svg'
 import Coin from '../../svgs/Bitcoin.svg';
-import GiraffeImg from '../../svgs/giraffeImg'
+import styled from 'styled-components'
 
 
 interface NowBuyCoinType {
@@ -14,7 +14,20 @@ interface NowBuyCoinType {
     nowPrice: number,
     pre: number,
 }
-
+const GiraffeImg = styled.img<{ speed: number }>`
+    animation: updown ${props => props.speed}s cubic-bezier(0.4, 0, 1, 1) 0s infinite alternate; 
+    top: 0px;
+    position: relative;
+    @keyframes updown {
+        0% {
+            top: 0px;
+        }
+    
+        100% {
+            top: 55px; 
+        }
+    }
+`
 
 export default function MainPanel({ market, nowPrice, pre }: NowBuyCoinType) {
     const selectGiraffe = useCallback(
