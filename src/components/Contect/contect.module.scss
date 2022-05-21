@@ -15,5 +15,13 @@
     background: $main-gradient;
     box-shadow: 5px 5px 4px #8f8f8f96;
     border-radius: 0.5rem;
-    
+    display: flex;
+    flex-direction: column;    
+    padding: 1rem;
 }
+
+.giraffeBox{
+    display: flex;
+    justify-content: center;
+}
+
