@@ -9,7 +9,7 @@ export default function Contect() {
                 <div className={styles.giraffeBox}>
                     <img src={Giraffe}></img>
                 </div>
-                <div className={styles.conetctTextBox}>
+                <div className={styles.contectTextBox}>
                     <p>Tel. 010-9142-8662</p>
                     <p>E-Mail. seungjae2668@naver.com</p>
                 </div>
