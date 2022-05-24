@@ -25,3 +25,17 @@
     justify-content: center;
 }
 
+.contectTextBox{
+    color:white;
+    font-family: Clash Display Variable;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.5rem;
+    align-items: center;
+}
+
+.contectTextBox p{
+    padding-top: 1rem;
+}
+
