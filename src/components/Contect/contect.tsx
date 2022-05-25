@@ -13,6 +13,9 @@ export default function Contect() {
                     <p>Tel. 010-9142-8662</p>
                     <p>E-Mail. seungjae2668@naver.com</p>
                 </div>
+                <div className={styles.iconBox}>
+                    
+                </div>
             </div>
         </div>
     )
