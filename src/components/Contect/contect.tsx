@@ -18,14 +18,13 @@ export default function Contect() {
                 </div>
                 <div className={styles.iconBox}>
                     <div className={styles.github}>
-                        <a href="www.naver.com">
+                        <a href="https://github.com/LeeSeungjae00">
                             <GithubSvg></GithubSvg>
-
                         </a>
-                        <a href="">
+                        <a href="https://www.instagram.com/seung__00_/">
                             <InstarSvg></InstarSvg>
                         </a>
-                        <a href="">
+                        <a href="https://www.facebook.com/profile.php?id=100007292509132">
                             <FacebookSvg></FacebookSvg>
                         </a>
                     </div>
