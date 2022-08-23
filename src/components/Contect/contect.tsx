@@ -4,6 +4,7 @@ import Giraffe from '../../svgs/giraffe.svg'
 import GithubSvg from '../../svgs/githubSvg'
 import InstarSvg from '../../svgs/instarSvg'
 import FacebookSvg from '../../svgs/facebookSvg'
+import PortfoiloSvg from '../../svgs/portfoiloSvg'
 
 export default function Contect() {
     return (
@@ -26,6 +27,9 @@ export default function Contect() {
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=100007292509132">
                             <FacebookSvg></FacebookSvg>
+                        </a>
+                        <a href="https://lsjportfolio.netlify.app/">
+                            <PortfoiloSvg></PortfoiloSvg>
                         </a>
                     </div>
                 </div>
