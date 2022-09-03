@@ -1,16 +1,23 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Main from '../components/main'
-import TradingList from '../components/tradingList/tradingList'
-import Contect from '../components/Contect/contect'
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Main from "../components/main";
+import TradingList from "../components/tradingList/tradingList";
+import Contect from "../components/Contect/contect";
+import {
+  ROUTE_CONTECT,
+  ROUTE_MAIN,
+  ROUTE_TRADING_LIST,
+} from "../constant/route";
 
 export default function RouterCoinfig() {
-    return (
-        <Routes>
-            <Route path = "/" element={<Main></Main>}></Route>
-            <Route path = "/tradingList" element={<TradingList></TradingList>}></Route>
-            <Route path = "/contect" element={<Contect></Contect>}></Route>
-        </Routes>
-    )
+  return (
+    <Routes>
+      <Route path={ROUTE_MAIN} element={<Main></Main>}></Route>
+      <Route
+        path={ROUTE_TRADING_LIST}
+        element={<TradingList></TradingList>}
+      ></Route>
+      <Route path={ROUTE_CONTECT} element={<Contect></Contect>}></Route>
+    </Routes>
+  );
 }
