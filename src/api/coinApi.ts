@@ -9,7 +9,7 @@ export const getCoinState = (market: string) => () =>
     })
     .then((res) => res.data);
 
-export const getTradingHistory = (pageParam: string) =>
+export const getTradingHistory = (pageParam: String) =>
   axios.get("/tradingHistory", {
     params: {
       index: pageParam,
