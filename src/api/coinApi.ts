@@ -1,13 +1,11 @@
 import axios from "axios";
 
-export const getCoinState = (market: string) => () =>
-  axios
-    .get(`/coinState`, {
-      params: {
-        market,
-      },
-    })
-    .then((res) => res.data);
+export const getCoinState = (market: string) =>
+  axios.get(`/coinState`, {
+    params: {
+      market,
+    },
+  });
 
 export const getTradingHistory = (pageParam: String) =>
   axios.get("/tradingHistory", {
@@ -15,3 +13,7 @@ export const getTradingHistory = (pageParam: String) =>
       index: pageParam,
     },
   });
+
+// export const getBuyCoin = () => (
+
+// )
