@@ -15,3 +15,5 @@ export const getTradingHistory = (pageParam: String) =>
   });
 
 export const getBuyCoin = () => axios.get("/buyCoin");
+
+export const getTodayCoinList = () => axios.get("/todayCoinList");

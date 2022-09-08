@@ -1,27 +1,30 @@
-import axios from 'axios';
-import React from 'react'
-import { useQuery } from 'react-query';
-import Table from '../components/table'
-import { todayCoinType } from '../types/axiosType';
+import axios from "axios";
+import React from "react";
+import { useQuery } from "react-query";
+import { getTodayCoinList } from "../api/coinApi";
+import Table from "../components/table";
+import { todayCoinType } from "../types/axiosType";
 
 interface TodayCoinTable {
-    onRowClick:(rowVal : string)=>void;
+  onRowClick: (rowVal: string) => void;
 }
 
-export default function TodayCoinTable({onRowClick} : TodayCoinTable) {
-    const { data, isLoading } = useQuery<todayCoinType[], Error>("todayCoin", () =>
-        axios.get("/todayCoinList").then(res => res.data)
-    );
+export default function TodayCoinTable({ onRowClick }: TodayCoinTable) {
+  const { data, isLoading } = useQuery<todayCoinType[], Error>(
+    "todayCoin",
+    () => getTodayCoinList().then((res) => res.data)
+  );
 
-    if(isLoading) return <>loading</>
+  if (isLoading) return <>loading</>;
 
-    
-
-    return (
-        <Table
-            onRowClick={onRowClick}
-            thead = {["Market", "Target Price"]}
-            tbody = {(data as todayCoinType[]).map((val : todayCoinType) => [val.coinMarket, val.targetPrice + " ₩"])}
-        />
-    )
+  return (
+    <Table
+      onRowClick={onRowClick}
+      thead={["Market", "Target Price"]}
+      tbody={(data as todayCoinType[]).map((val: todayCoinType) => [
+        val.coinMarket,
+        val.targetPrice + " ₩",
+      ])}
+    />
+  );
 }
