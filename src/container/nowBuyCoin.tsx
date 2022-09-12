@@ -1,7 +1,6 @@
 import React from "react";
 import MainPanel from "../components/mainPanel/mainPanel";
 import { useQuery } from "react-query";
-import axios from "axios";
 import { getBuyCoin } from "../api/coinApi";
 
 export default function NowBuyCoin() {
