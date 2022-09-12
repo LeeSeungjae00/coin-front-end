@@ -1,16 +1,9 @@
 import React from "react";
 import MainPanel from "../components/mainPanel/mainPanel";
-import { useQuery } from "react-query";
-import { getBuyCoin } from "../api/coinApi";
+import { useGetNowBuyCoin } from "../hooks/queryHooks";
 
 export default function NowBuyCoin() {
-  const { data, isLoading } = useQuery(
-    "nowBuyCoin",
-    () => getBuyCoin().then((res) => res.data[0]),
-    {
-      refetchInterval: 10000,
-    }
-  );
+  const { data, isLoading } = useGetNowBuyCoin();
 
   if (isLoading) return <>loading</>;
   return (

@@ -1,8 +1,6 @@
-import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
-import { getTodayCoinList } from "../api/coinApi";
 import Table from "../components/table";
+import { useGetTodayCoinTable } from "../hooks/queryHooks";
 import { todayCoinType } from "../types/axiosType";
 
 interface TodayCoinTable {
@@ -10,10 +8,7 @@ interface TodayCoinTable {
 }
 
 export default function TodayCoinTable({ onRowClick }: TodayCoinTable) {
-  const { data, isLoading } = useQuery<todayCoinType[], Error>(
-    "todayCoin",
-    () => getTodayCoinList().then((res) => res.data)
-  );
+  const { data, isLoading } = useGetTodayCoinTable();
 
   if (isLoading) return <>loading</>;
 
