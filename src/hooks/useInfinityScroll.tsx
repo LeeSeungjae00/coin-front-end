@@ -16,7 +16,8 @@ export default function useInfinityScroll(infinityQuery: infinityQueryType) {
         hasNextPage,
         isFetching,
         isFetchingNextPage,
-        status
+        status,
+        isLoading
     } = useInfiniteQuery<tradingHistoryApiType>(
         "getTradingList",
         async ({ pageParam = 0 }) => {
@@ -45,6 +46,7 @@ export default function useInfinityScroll(infinityQuery: infinityQueryType) {
         isFetching,
         isFetchingNextPage,
         status,
-        RefDiv: <div key="infinityKeyDiv" ref={ref} />
+        RefDiv: <div key="infinityKeyDiv" ref={ref} />,
+        isLoading
     }
 }

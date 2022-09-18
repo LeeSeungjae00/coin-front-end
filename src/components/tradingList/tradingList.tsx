@@ -9,10 +9,11 @@ import TradingCard from "../tradingCard/tradingCard";
 import styles from "./tradingList.module.scss";
 
 export default function TradingList() {
-  const { data, status, RefDiv } = useInfinityScroll((pageParam: String) => {
+  const { data, RefDiv, isLoading} = useInfinityScroll((pageParam: String) => {
     return getTradingHistory(pageParam);
   });
   const Chart = useChartHook(data);
+
 
   const makeTradingList = React.useCallback(
     (data: InfiniteData<tradingHistoryApiType>, RefDiv: JSX.Element) => {
@@ -39,7 +40,7 @@ export default function TradingList() {
     []
   );
 
-  if (status === "loading") return <>loading</>;
+  if (isLoading) return <>loading</>;
 
   return (
     <div className={styles.tradingList}>
