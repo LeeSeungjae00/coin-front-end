@@ -8,8 +8,14 @@ interface TodayCoinTable {
 }
 
 export default function TodayCoinTable({ onRowClick }: TodayCoinTable) {
-  const { data, isLoading } = useGetTodayCoinTable();
+  const { data, isLoading, isError } = useGetTodayCoinTable();
 
+  if (isError)
+    return (
+      <>
+        정보 갱신 실패. <br></br>새로고침을 해주세요
+      </>
+    );
   if (isLoading) return <>loading</>;
 
   return (
