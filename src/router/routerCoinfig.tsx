@@ -5,9 +5,11 @@ import TradingList from "../components/tradingList/tradingList";
 import Contect from "../components/Contect/contect";
 import {
   ROUTE_CONTECT,
+  ROUTE_LOGIN,
   ROUTE_MAIN,
   ROUTE_TRADING_LIST,
 } from "../constant/route";
+import Login from "../components/login";
 
 export default function RouterCoinfig() {
   return (
@@ -18,6 +20,7 @@ export default function RouterCoinfig() {
         element={<TradingList></TradingList>}
       ></Route>
       <Route path={ROUTE_CONTECT} element={<Contect></Contect>}></Route>
+      <Route path={ROUTE_LOGIN} element={<Login></Login>}></Route>
     </Routes>
   );
 }

@@ -1,3 +1,3 @@
-import Header from "./login";
+import Login from "./login";
 
-export default Header;
+export default Login;
