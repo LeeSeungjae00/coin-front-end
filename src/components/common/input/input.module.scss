@@ -1,0 +1,5 @@
+.input {
+  ::after {
+    content: attr(data-lable);
+  }
+}
