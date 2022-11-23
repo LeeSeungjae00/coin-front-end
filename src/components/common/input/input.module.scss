@@ -1,5 +1,21 @@
 .input {
-  ::after {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  input {
+    background: none;
+    border: none;
+    border-bottom: solid 1px black;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    &:focus-visible {
+      border-bottom: solid 1px gray;
+      outline: none;
+    }
+  }
+  &::before {
+    font-size: 0.8rem;
     content: attr(data-lable);
   }
 }
