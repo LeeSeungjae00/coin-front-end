@@ -3,8 +3,9 @@
   background-color: #fff;
   padding: 48px;
   margin: auto;
+  height: 100%;
+  box-sizing: border-box;
 }
-
 
 @font-face {
   font-family: "ClashDisplay-Bold";
@@ -17,24 +18,21 @@
   src: url("./fonts/ClashDisplay-Medium.ttf");
 }
 
-
 @font-face {
   font-family: "ClashDisplay-Regular";
   src: url("./fonts/ClashDisplay-Regular.ttf");
 }
 
-.colFlex{
+.colFlex {
   display: flex;
   flex-direction: column;
 }
 
-.rowFlex{
+.rowFlex {
   display: flex;
   flex-direction: row;
 }
 
-.center{
+.center {
   align-items: center;
 }
-
-
