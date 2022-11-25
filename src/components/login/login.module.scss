@@ -16,6 +16,30 @@
   font-family: ClashDisplay-Regular;
   width: 371px;
   height: 533px;
-  background: rgba(217, 217, 217, 0.56);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 13px;
+  padding: 1rem 0rem;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  border: none;
+  font-family: ClashDisplay-Regular;
+  position: static;
+  text-decoration: solid;
+  box-sizing: border-box;
+  font-size: 13px;
+  width: 90%;
+  margin: auto;
+  &.basic {
+    background-color: #fff;
+  }
+  &.colorful {
+    background: $main-gradient;
+    color: #fff;
+  }
 }

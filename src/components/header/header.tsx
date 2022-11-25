@@ -7,7 +7,7 @@ export default function Header() {
     <div className={styles.header}>
       <div className={styles.logo}>
         <img src="icon.jpg" className="App-icon" alt="logo" />
-        <p className={styles.title}>SJ Coin</p>
+        <p className={styles.title}>Coin</p>
       </div>
       <menu className={styles.menu}>
         <Link to="/" className={styles.menuItem}>
