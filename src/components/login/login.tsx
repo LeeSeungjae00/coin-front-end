@@ -1,14 +1,51 @@
 import React from "react";
 import Input from "../common/input";
 import styles from "./login.module.scss";
+import { Controller, FieldValues, useForm } from "react-hook-form";
 
 export default function Login() {
+  const { control, handleSubmit } = useForm();
+
+  const onSubmit = async (data: FieldValues) => {
+    await new Promise((r) => setTimeout(r, 1000));
+    console.log(data);
+  };
+
   return (
     <div className={styles.login}>
-      <form className={styles.loginForm}>
-        <Input aria-label="ID"></Input>
-        <Input aria-label="P/W"></Input>
-        <button className={`${styles.button} ${styles.colorful}`}>login</button>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.loginForm}>
+        <Controller
+          name="id"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => <Input aria-label="ID" {...field} />}
+        />
+        <Controller
+          name="pwd"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <Input aria-label="P/W" type="password" {...field} />
+          )}
+        />
+        {/* <Input
+          aria-label="ID"
+          id="id"
+          {...register("id", {
+            required: "아이디를 입력해주세요",
+          })}
+        ></Input> */}
+        {/* <Input
+          id="pw"
+          aria-label="P/W"
+          type="password"
+          {...register("id", {
+            required: "비밀번호를 입력해주세요",
+          })}
+        ></Input> */}
+        <button type="submit" className={`${styles.button} ${styles.colorful}`}>
+          login
+        </button>
         <hr />
         <button style={{ marginBottom: "1rem" }} className={`${styles.button}`}>
           contect
