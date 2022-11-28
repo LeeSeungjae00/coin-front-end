@@ -4,11 +4,19 @@ import styles from "./login.module.scss";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 
 export default function Login() {
-  const { control, handleSubmit } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting, isDirty, errors },
+  } = useForm();
 
   const onSubmit = async (data: FieldValues) => {
     await new Promise((r) => setTimeout(r, 1000));
-    console.log(data);
+    if (data.id === "admin" && data.pwd === "admin") {
+      localStorage.setItem("login", "true");
+    } else {
+      alert("ID, PW 정보가 틀립니다.");
+    }
   };
 
   return (
@@ -17,17 +25,28 @@ export default function Login() {
         <Controller
           name="id"
           control={control}
-          rules={{ required: true }}
+          rules={{ required: "아이디를 입력해주세요" }}
           render={({ field }) => <Input aria-label="ID" {...field} />}
         />
+        {errors.id && (
+          <small className={styles.errorM} role="alert">
+            {errors.id.message as string}
+          </small>
+        )}
         <Controller
           name="pwd"
           control={control}
-          rules={{ required: true }}
+          rules={{ required: "비밀번호를를 입력해주세요" }}
+          aria-invalid={!isDirty ? undefined : errors.pwd ? "true" : "false"}
           render={({ field }) => (
             <Input aria-label="P/W" type="password" {...field} />
           )}
         />
+        {errors.pwd && (
+          <small className={styles.errorM} role="alert">
+            {errors.pwd.message as string}
+          </small>
+        )}
         {/* <Input
           aria-label="ID"
           id="id"
