@@ -2,6 +2,7 @@ import React from "react";
 import Input from "../common/input";
 import styles from "./login.module.scss";
 import { Controller, FieldValues, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const {
@@ -9,11 +10,13 @@ export default function Login() {
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (data: FieldValues) => {
     await new Promise((r) => setTimeout(r, 1000));
     if (data.id === "admin" && data.pwd === "admin") {
       localStorage.setItem("login", "true");
+      navigate("/");
     } else {
       alert("ID, PW 정보가 틀립니다.");
     }
