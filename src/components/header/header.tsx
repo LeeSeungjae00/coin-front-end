@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getInitials } from "../../lib/getInitials";
+import { getUserName } from "../../lib/getUser";
 import styles from "./header.module.scss";
 
 export default function Header() {
@@ -21,12 +23,21 @@ export default function Header() {
         </Link>
       </menu>
       <div className={styles.navButton}>
-        <Link to="/login" className={`${styles.button} ${styles.basic}`}>
-          login
-        </Link>
-        <Link to="/contect" className={`${styles.button} ${styles.colorful}`}>
-          Contect
-        </Link>
+        {getUserName() ? (
+          <div className={styles.userLogo}>{getInitials(getUserName())}</div>
+        ) : (
+          <>
+            <Link to="/login" className={`${styles.button} ${styles.basic}`}>
+              login
+            </Link>
+            <Link
+              to="/contect"
+              className={`${styles.button} ${styles.colorful}`}
+            >
+              Contect
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Login() {
   const onSubmit = async (data: FieldValues) => {
     await new Promise((r) => setTimeout(r, 1000));
     if (data.id === "admin" && data.pwd === "admin") {
-      localStorage.setItem("login", "true");
+      localStorage.setItem("login", JSON.stringify(data));
       navigate("/");
     } else {
       alert("ID, PW 정보가 틀립니다.");
