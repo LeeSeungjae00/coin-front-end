@@ -18,8 +18,13 @@ export default function Header() {
         <Link to="/TradingList" className={styles.menuItem}>
           Trading List
         </Link>
-        <Link to="/Admin" className={styles.menuItem}>
-          Admin Page
+        {getUserName() && (
+          <Link to="/Admin" className={styles.menuItem}>
+            Admin Page
+          </Link>
+        )}
+        <Link to="/simulator" className={styles.menuItem}>
+          Simulator
         </Link>
       </menu>
       <div className={styles.navButton}>
