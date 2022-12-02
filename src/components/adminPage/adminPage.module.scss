@@ -1,0 +1,27 @@
+.strategyList {
+  width: 100%;
+  padding: 4rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .strategy {
+    flex: 1;
+    height: 40vh;
+    background-color: #5e60d27a;
+    border-radius: 1rem;
+
+    hr {
+      margin: 0 2rem;
+      border-style: solid;
+      border-color: #ffffffab;
+    }
+  }
+  .cardHead {
+    padding: 2rem;
+    padding-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
