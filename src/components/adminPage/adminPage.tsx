@@ -15,11 +15,23 @@ export default function AdminPage() {
           <img src={Giraffe} alt="" />
           <div className={styles.desc}>
             <p>위험성: ⭐️</p>
-            <p>안정성: ⭐️⭐️⭐️⭐️⭐️</p>
+            <p>안정성: ⭐️⭐️⭐️</p>
             <p>수익률: ⭐️</p>
           </div>
         </div>
-        <div className={styles.strategy}></div>
+        <div className={styles.strategy}>
+          <div className={styles.cardHead}>
+            <p>2️⃣ STANDARD</p>
+            <p>✔</p>
+          </div>
+          <hr></hr>
+          <img src={Giraffe} alt="" />
+          <div className={styles.desc}>
+            <p>위험성: ⭐️⭐️⭐️</p>
+            <p>안정성: ⭐️⭐️⭐️</p>
+            <p>수익률: ⭐️⭐️⭐️</p>
+          </div>
+        </div>
         <div className={styles.strategy}></div>
         <div className={styles.strategy}></div>
       </div>
