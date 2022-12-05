@@ -1,0 +1,40 @@
+.strategy {
+  flex: 1;
+  background-color: #5e60d27a;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .cardHead {
+    padding: 2rem;
+    padding-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  hr {
+    margin: 0 2rem;
+    border-style: solid;
+    border-color: #ffffffab;
+  }
+  img {
+    padding: 1rem;
+    width: 60%;
+    align-self: center;
+  }
+
+  .imgContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .desc {
+    padding: 2rem;
+    box-sizing: border-box;
+    p {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
