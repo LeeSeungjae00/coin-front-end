@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./strategyCard.module.scss";
-import Giraffe from "../../svgs/giraffe.svg";
-import lockSvg from "../../svgs/lock.svg";
+import Giraffe from "../../../../svgs/giraffe.svg";
+import lockSvg from "../../../../svgs/lock.svg";
 
 interface StrategyCardProp {
   name: string;

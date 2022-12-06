@@ -6,3 +6,16 @@
   justify-content: space-between;
   gap: 1rem;
 }
+
+.options {
+  padding: 4rem;
+  padding-top: 0rem;
+  .sliderContainer {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  .flexBox {
+    display: flex;
+    align-items: center;
+  }
+}

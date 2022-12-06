@@ -1,9 +1,12 @@
+@import "../../../../common/common.scss";
+
 .strategy {
   flex: 1;
   background-color: #5e60d27a;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  font-family: ClashDisplay-Regular;
 
   .cardHead {
     padding: 2rem;
