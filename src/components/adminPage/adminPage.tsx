@@ -3,7 +3,7 @@ import styles from "./adminPage.module.scss";
 import Giraffe from "../../svgs/giraffe.svg";
 import StrategyCard from "./components/strategyCard";
 import Slider from "@mui/material/Slider";
-import { Alert, Checkbox, FormControlLabel } from "@mui/material";
+import { Alert, Button, Checkbox, FormControlLabel } from "@mui/material";
 
 const marks = [
   {
@@ -149,6 +149,11 @@ export default function AdminPage() {
         <Alert>
           상한선을 낮출 수록 안정성은 낮아지지만 수익률은 높아질 수 있습니다.
         </Alert>
+        <div>
+          <Button sx={{ float: "right", mt: 1 }} variant="contained">
+            저장
+          </Button>
+        </div>
       </div>
     </>
   );
