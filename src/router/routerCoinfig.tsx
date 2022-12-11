@@ -8,10 +8,12 @@ import {
   ROUTE_CONTECT,
   ROUTE_LOGIN,
   ROUTE_MAIN,
+  ROUTE_SIMULATOR,
   ROUTE_TRADING_LIST,
 } from "../constant/route";
 import Login from "../components/login";
 import AdminPage from "../components/adminPage";
+import Simulator from "../components/simulator";
 
 export default function RouterCoinfig() {
   return (
@@ -24,6 +26,7 @@ export default function RouterCoinfig() {
       <Route path={ROUTE_CONTECT} element={<Contect></Contect>}></Route>
       <Route path={ROUTE_LOGIN} element={<Login></Login>}></Route>
       <Route path={ROUTE_ADMIN} element={<AdminPage></AdminPage>}></Route>
+      <Route path={ROUTE_SIMULATOR} element={<Simulator />}></Route>
     </Routes>
   );
 }
