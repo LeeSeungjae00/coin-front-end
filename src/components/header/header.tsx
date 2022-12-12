@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { logout } from "../../lib/auth";
 import { getInitials } from "../../lib/getInitials";
 import { getUserName } from "../../lib/getUser";
 import styles from "./header.module.scss";
@@ -35,11 +36,9 @@ export default function Header() {
         <Link to="/TradingList" className={styles.menuItem}>
           Trading List
         </Link>
-        {getUserName() && (
-          <Link to="/Admin" className={styles.menuItem}>
-            Admin Page
-          </Link>
-        )}
+        <Link to="/Admin" className={styles.menuItem}>
+          Admin Page
+        </Link>
         {/* <Link to="/simulator" className={styles.menuItem}>
           Simulator
         </Link> */}
@@ -94,7 +93,7 @@ export default function Header() {
                 </ListItemIcon>
                 Settings
               </MenuItem>
-              <MenuItem>
+              <MenuItem onClick={logout}>
                 <ListItemIcon>
                   <Logout fontSize="small" />
                 </ListItemIcon>

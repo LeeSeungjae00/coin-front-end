@@ -11,12 +11,11 @@ export default function Login() {
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
   const navigate = useNavigate();
-
   const onSubmit = async (data: FieldValues) => {
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 400));
     if (data.id === "admin" && data.pwd === "admin") {
       localStorage.setItem("login", JSON.stringify(data));
-      navigate("/");
+      window.location.href = "/";
     } else {
       alert("ID, PW 정보가 틀립니다.");
     }
@@ -50,21 +49,6 @@ export default function Login() {
             {errors.pwd.message as string}
           </small>
         )}
-        {/* <Input
-          aria-label="ID"
-          id="id"
-          {...register("id", {
-            required: "아이디를 입력해주세요",
-          })}
-        ></Input> */}
-        {/* <Input
-          id="pw"
-          aria-label="P/W"
-          type="password"
-          {...register("id", {
-            required: "비밀번호를 입력해주세요",
-          })}
-        ></Input> */}
         <button type="submit" className={`${styles.button} ${styles.colorful}`}>
           login
         </button>
