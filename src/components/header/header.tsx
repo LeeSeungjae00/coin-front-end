@@ -8,7 +8,8 @@ import {
   MenuItem,
 } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ROUTE_SETTING } from "../../constant/route";
 import { logout } from "../../lib/auth";
 import { getInitials } from "../../lib/getInitials";
 import { getUserName } from "../../lib/getUser";
@@ -23,11 +24,12 @@ export default function Header() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigate = useNavigate();
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
         <img src="icon.jpg" className="App-icon" alt="logo" />
-        <p className={styles.title}>Coin</p>
+        <p className={styles.title}>비자매</p>
       </div>
       <menu className={styles.menu}>
         <Link to="/" className={styles.menuItem}>
@@ -87,7 +89,11 @@ export default function Header() {
                 <Avatar /> My account
               </MenuItem>
               <Divider />
-              <MenuItem>
+              <MenuItem
+                onClick={(e) => {
+                  navigate(ROUTE_SETTING);
+                }}
+              >
                 <ListItemIcon>
                   <Settings fontSize="small" />
                 </ListItemIcon>

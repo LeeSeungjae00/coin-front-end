@@ -4,3 +4,4 @@ export const ROUTE_CONTECT = "/contect";
 export const ROUTE_LOGIN = "/login";
 export const ROUTE_ADMIN = "/admin";
 export const ROUTE_SIMULATOR = "/simulator";
+export const ROUTE_SETTING = "/setting";

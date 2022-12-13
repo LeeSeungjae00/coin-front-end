@@ -10,7 +10,6 @@ export default function Login() {
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm();
-  const navigate = useNavigate();
   const onSubmit = async (data: FieldValues) => {
     await new Promise((r) => setTimeout(r, 400));
     if (data.id === "admin" && data.pwd === "admin") {
