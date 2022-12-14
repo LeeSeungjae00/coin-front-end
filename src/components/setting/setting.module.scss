@@ -7,3 +7,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.settingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
