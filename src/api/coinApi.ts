@@ -3,6 +3,7 @@ import {
   API_GET_TRADING_HISTORY,
   API_GET_BUY_COIN,
   API_GET_COIN_LIST,
+  API_GET_ADMIN_SETTING,
 } from "./../constant/api";
 import axios from "axios";
 
@@ -23,3 +24,5 @@ export const getTradingHistory = (pageParam: String) =>
 export const getBuyCoin = () => axios.get(API_GET_BUY_COIN);
 
 export const getTodayCoinList = () => axios.get(API_GET_COIN_LIST);
+
+export const getAdminSetting = () => axios.get(API_GET_ADMIN_SETTING);
