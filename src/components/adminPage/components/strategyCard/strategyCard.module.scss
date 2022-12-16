@@ -2,11 +2,16 @@
 
 .strategy {
   flex: 1;
-  background-color: #5e60d27a;
+  background-color: #5e60d289;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   font-family: ClashDisplay-Regular;
+
+  &.selected {
+    scale: 1.05;
+    background-color: #5e60d2cd;
+  }
 
   .cardHead {
     padding: 2rem;

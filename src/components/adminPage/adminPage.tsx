@@ -43,35 +43,49 @@ export default function AdminPage() {
     val: 10,
     disable: false,
   });
+  const [selected, setSelected] = useState({
+    basic: true,
+    standard: false,
+    premium: false,
+    advanced: false,
+  });
 
   return (
     <>
       <div className={styles.strategyList}>
         <StrategyCard
+          selected={selected}
+          setSelected={setSelected}
           dangerousness={1}
           lock={true}
-          name="1️⃣ BASIC"
+          name="basic"
           stability={3}
           yield={1}
         ></StrategyCard>
         <StrategyCard
+          selected={selected}
+          setSelected={setSelected}
           dangerousness={3}
           lock={true}
-          name="2️⃣ STANDARD"
+          name="standard"
           stability={1}
           yield={3}
         ></StrategyCard>
         <StrategyCard
+          selected={selected}
+          setSelected={setSelected}
           dangerousness={4}
           lock={false}
-          name="3️⃣ PREMIUM"
+          name="premium"
           stability={1}
           yield={5}
         ></StrategyCard>
         <StrategyCard
+          selected={selected}
+          setSelected={setSelected}
           dangerousness={3}
           lock={false}
-          name="4️⃣ ADVANCED"
+          name="advanced"
           stability={3}
           yield={4}
         ></StrategyCard>
